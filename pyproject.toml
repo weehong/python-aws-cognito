@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cognito-user"
+version = "0.1.0"
+description = "AWS Cognito User Management Tools"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "boto3>=1.28.0",
+    "python-dotenv>=1.0.0",
+    "textual>=0.44.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+cognito-user = "cognito_user.tui:main"
+cognito-create-users = "cognito_user.create_users:main"
+cognito-delete-users = "cognito_user.delete_users:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
